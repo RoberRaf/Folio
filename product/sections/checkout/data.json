@@ -1,0 +1,58 @@
+{
+  "_meta": {
+    "models": {
+      "Book": "The photo book being purchased — includes cover image, title, page count, and format/size details.",
+      "Order": "A confirmed purchase of a Book. Tracks order number, pricing breakdown, shipping address, payment status, and estimated delivery.",
+      "ShippingAddress": "The delivery destination for the order — name, street, city, state, postal code, country.",
+      "PaymentMethod": "Credit/debit card details used for the transaction — card brand, last four digits, expiry."
+    },
+    "relationships": [
+      "Order belongs to a User",
+      "Order references one Book",
+      "Order has one ShippingAddress",
+      "Order has one PaymentMethod"
+    ]
+  },
+  "book": {
+    "id": "book-9f3a",
+    "title": "Summer in Provence",
+    "coverUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=560&fit=crop",
+    "pageCount": 32,
+    "format": "Hardcover",
+    "size": "8×10 in"
+  },
+  "orderSummary": {
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "subtotal": 49.99,
+    "shipping": 5.99,
+    "tax": 4.48,
+    "total": 60.46,
+    "currency": "USD"
+  },
+  "shippingAddress": {
+    "fullName": "Margaux Bellamy",
+    "streetAddress": "742 Lavender Lane",
+    "city": "Asheville",
+    "state": "NC",
+    "postalCode": "28801",
+    "country": "United States"
+  },
+  "paymentMethod": {
+    "cardBrand": "Visa",
+    "lastFour": "4242",
+    "expiryMonth": 9,
+    "expiryYear": 2027
+  },
+  "confirmation": {
+    "orderId": "ORD-2026-00483",
+    "status": "confirmed",
+    "estimatedDelivery": "March 8–12, 2026",
+    "message": "Your book is on its way to the printer!"
+  },
+  "errors": {
+    "paymentDeclined": "Your card was declined. Please check your details and try again.",
+    "invalidAddress": "We couldn't validate this address. Please double-check and re-enter.",
+    "networkError": "Something went wrong. Please try again in a moment."
+  }
+}

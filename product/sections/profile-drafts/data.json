@@ -1,0 +1,79 @@
+{
+  "_meta": {
+    "models": {
+      "User": "The authenticated account holder whose profile is displayed — includes display name, email, and avatar.",
+      "Book": "A photo book project belonging to the user. Has a status of 'draft' (in progress) or 'ordered' (submitted for printing), a cover thumbnail, title, and page count."
+    },
+    "relationships": [
+      "User has many Books",
+      "Book belongs to User"
+    ]
+  },
+  "user": {
+    "id": "usr_001",
+    "name": "Jamie Holloway",
+    "email": "jamie.holloway@gmail.com",
+    "avatarUrl": "https://i.pravatar.cc/150?img=47"
+  },
+  "books": [
+    {
+      "id": "book_001",
+      "title": "Summer in Tulum",
+      "status": "draft",
+      "coverUrl": "https://picsum.photos/seed/tulum/400/300",
+      "pageCount": 24,
+      "lastEditedAt": "2026-02-20T14:32:00Z"
+    },
+    {
+      "id": "book_002",
+      "title": "Maya's First Year",
+      "status": "ordered",
+      "coverUrl": "https://picsum.photos/seed/maya/400/300",
+      "pageCount": 40,
+      "lastEditedAt": "2025-11-03T09:10:00Z",
+      "orderedAt": "2025-11-15T17:45:00Z"
+    },
+    {
+      "id": "book_003",
+      "title": "Weekend in Kyoto",
+      "status": "ordered",
+      "coverUrl": "https://picsum.photos/seed/kyoto/400/300",
+      "pageCount": 32,
+      "lastEditedAt": "2025-09-08T11:20:00Z",
+      "orderedAt": "2025-09-21T10:00:00Z"
+    },
+    {
+      "id": "book_004",
+      "title": "Our Wedding Day",
+      "status": "draft",
+      "coverUrl": "https://picsum.photos/seed/wedding/400/300",
+      "pageCount": 8,
+      "lastEditedAt": "2026-02-22T20:05:00Z"
+    },
+    {
+      "id": "book_005",
+      "title": "Road Trip 2025",
+      "status": "draft",
+      "coverUrl": "https://picsum.photos/seed/roadtrip/400/300",
+      "pageCount": 16,
+      "lastEditedAt": "2026-01-14T16:50:00Z"
+    },
+    {
+      "id": "book_006",
+      "title": "Family Christmas",
+      "status": "ordered",
+      "coverUrl": "https://picsum.photos/seed/xmas/400/300",
+      "pageCount": 28,
+      "lastEditedAt": "2025-12-10T08:30:00Z",
+      "orderedAt": "2025-12-18T12:15:00Z"
+    },
+    {
+      "id": "book_007",
+      "title": "New Project",
+      "status": "draft",
+      "coverUrl": null,
+      "pageCount": 0,
+      "lastEditedAt": "2026-02-23T19:00:00Z"
+    }
+  ]
+}

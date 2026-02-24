@@ -1,0 +1,24 @@
+{
+  "_meta": {
+    "models": {
+      "authForm": "Represents the state of the authentication form including mode, field values, and any error or loading state.",
+      "authError": "A named auth error with a user-facing message to display inline."
+    },
+    "relationships": [
+      "authForm references authError by errorCode when validation or server errors occur"
+    ]
+  },
+  "defaultMode": "signIn",
+  "authErrors": [
+    { "code": "invalid_credentials", "message": "Email or password is incorrect." },
+    { "code": "email_taken", "message": "An account with this email already exists." },
+    { "code": "weak_password", "message": "Password must be at least 8 characters." },
+    { "code": "google_cancelled", "message": "Google sign-in was cancelled." },
+    { "code": "network_error", "message": "Something went wrong. Please try again." }
+  ],
+  "formStates": [
+    { "id": "idle", "label": "Default" },
+    { "id": "loading", "label": "Submitting" },
+    { "id": "error", "label": "Error shown" }
+  ]
+}
