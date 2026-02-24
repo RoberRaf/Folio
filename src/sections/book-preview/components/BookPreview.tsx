@@ -1,9 +1,9 @@
 import type {
-    Page as BookPage,
-    BookPreviewProps,
-    Photo,
+  Page as BookPage,
+  BookPreviewProps,
+  Photo,
 } from '@/../product/sections/book-preview/types';
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import HTMLFlipBook from 'react-pageflip-enhanced';
 
 /* ═══════════════════════════════════════════════════════════════
@@ -199,13 +199,15 @@ export function BookPreview({
   onSaveDraft,
 }: BookPreviewProps) {
   const flipBookRef = useRef<any>(null)
-  const [currentPage, setCurrentPage] = useState(0)
+  const currentPageRef = useRef(0)
+  const [, forceRender] = useState(0)
 
   // Total rendered children: front cover + N pages + back cover
   const totalChildren = book.pages.length + 2
 
   const handleFlip = useCallback((e: any) => {
-    setCurrentPage(e.data)
+    currentPageRef.current = e.data
+    forceRender(n => n + 1)
   }, [])
 
   const flipPrev = useCallback(() => {
@@ -216,14 +218,16 @@ export function BookPreview({
     flipBookRef.current?.pageFlip()?.flipNext()
   }, [])
 
-  const pageLabel = useMemo(() => {
-    if (currentPage === 0) return 'Cover'
-    if (currentPage >= totalChildren - 1) return 'Back Cover'
-    return `Page ${currentPage} of ${book.pages.length}`
-  }, [currentPage, totalChildren, book.pages.length])
+  const currentPage = currentPageRef.current
+  const pageLabel =
+    currentPage === 0
+      ? 'Cover'
+      : currentPage >= totalChildren - 1 || currentPage >= totalChildren - 2
+        ? 'Back Cover'
+        : `Pages ${currentPage}–${currentPage + 1} of ${book.pages.length}`
 
   const isFirst = currentPage === 0
-  const isLast = currentPage >= totalChildren - 1
+  const isLast = currentPage >= totalChildren - 2
 
   return (
     <div className="h-screen flex flex-col bg-stone-100 dark:bg-stone-950 overflow-hidden">
@@ -318,22 +322,23 @@ export function BookPreview({
 
             <HTMLFlipBook
               ref={flipBookRef}
-              width={400}
-              height={550}
-              minWidth={200}
-              maxWidth={480}
-              minHeight={275}
-              maxHeight={660}
+              width={350}
+              height={500}
+              minWidth={150}
+              maxWidth={400}
+              minHeight={220}
+              maxHeight={560}
               showCover={true}
               flippingTime={800}
               drawShadow={true}
               maxShadowOpacity={0.18}
               mobileScrollSupport={true}
-              usePortrait={true}
+              usePortrait={false}
               startPage={0}
               useMouseEvents={true}
               clickEventForward={true}
               swipeDistance={30}
+              renderOnlyPageLengthChange={true}
               onFlip={handleFlip}
               className=""
               style={{}}

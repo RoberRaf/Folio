@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^cat product/sections/book-preview/data\\.json \\| python3 -c \"import json,sys; d=json\\.load\\(sys\\.stdin\\); print\\(f'Total pages: \\{len\\(d\\[\\\\\"book\\\\\"\\]\\[\\\\\"pages\\\\\"\\]\\)\\}'\\); print\\('Page IDs:', \\[p\\['id'\\] for p in d\\['book'\\]\\['pages'\\]\\]\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
