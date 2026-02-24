@@ -1,7 +1,7 @@
 import type { LandingProps } from '../types'
-import { HeroSection } from './HeroSection'
 import { FeaturesSection } from './FeaturesSection'
 import { FooterSection } from './FooterSection'
+import { HeroSection } from './HeroSection'
 
 export function LandingPage({ hero, features, footer, onCreateBook }: LandingProps) {
   return (

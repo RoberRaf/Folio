@@ -1,6 +1,7 @@
-import { useState } from 'react'
 import { BookOpen, Menu, Plus } from 'lucide-react'
-// Requires shadcn/ui: npx shadcn-ui@latest add sheet
+import { useState } from 'react'
+// NOTE: Sheet, SheetContent, SheetHeader, SheetTitle are from shadcn/ui
+// Install via: npx shadcn@latest add sheet
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet'
 import { UserMenu } from './UserMenu'
 

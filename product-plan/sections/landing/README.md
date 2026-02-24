@@ -1,41 +1,52 @@
-# Landing
+# Landing Page
 
 ## Overview
-
 Public-facing marketing page that communicates Folio's value proposition to new visitors. Composed of three sections: a full-width hero with headline and CTA, a feature showcase highlighting the three core steps (Upload, Arrange, Order), and a footer with contact and legal info. No navigation shell — this is a standalone page.
+
+## Shell
+This section does NOT use the application shell (standalone page).
+
+## Components
+
+| Component | Description |
+|-----------|-------------|
+| `LandingPage` | Root wrapper composing Hero, Features, and Footer |
+| `HeroSection` | Full-width dark hero with headline, subheadline, CTA button, and decorative book mockup |
+| `FeaturesSection` | Three-column grid of feature cards with step numbers and icons |
+| `FooterSection` | Dark footer with brand mark, email, social links, and copyright |
+
+## Props Interface
+
+```typescript
+interface LandingProps {
+  hero: HeroData
+  features: FeatureItem[]
+  footer: FooterData
+  onCreateBook?: () => void
+}
+```
 
 ## User Flows
 
-- Visitor lands on the page and reads the hero headline and subheadline
-- Visitor clicks "Create Your Book" and is taken to sign up
-- Visitor scrolls to the features section to understand how Folio works
-- Visitor finds contact info or social links in the footer
+1. Visitor lands on the page and reads the hero headline and subheadline
+2. Visitor clicks "Create Your Book" CTA → navigates to sign up
+3. Visitor scrolls to features section to understand how Folio works
+4. Visitor finds contact/social links in footer
 
-## Design Decisions
+## Tests
 
-- Dark, dramatic hero section (stone-950 background) with ambient rose glow effects and a decorative book mockup — communicates premium quality immediately
-- A dot-grid texture and subtle parallax depth create a visually immersive first impression
-- Features section switches to a light/dark mode aware background for contrast
-- "Three Simple Steps" framing makes the product immediately approachable
-- Footer is minimal and dark, matching the hero tone
+### Visual
+- [ ] Hero section fills viewport height on load
+- [ ] Book mockup renders with decorative elements
+- [ ] Feature cards display in 3-column grid on desktop, stack on mobile
+- [ ] Footer renders brand mark, email, social icons, and copyright
 
-## Data Shapes
+### Interaction
+- [ ] "Create Your Book" CTA calls `onCreateBook` callback
+- [ ] Social links open in new tab
+- [ ] Email link opens mail client
 
-**Entities:** HeroData, FeatureItem[], FooterData
-
-## Visual Reference
-
-See `screenshot.png` for the target UI design.
-
-## Components Provided
-
-- `LandingPage` — Root component, composes Hero + Features + Footer
-- `HeroSection` — Full-width dark hero with headline, subheadline, CTA, and book mockup
-- `FeaturesSection` — 3-column feature grid with step numbers and icons
-- `FooterSection` — Footer with brand mark, email, social links, and copyright
-
-## Callback Props
-
-| Callback | Triggered When |
-|----------|---------------|
-| `onCreateBook` | User clicks the hero "Create Your Book" CTA |
+### Responsive
+- [ ] Hero text centers on mobile, left-aligns on desktop
+- [ ] Feature grid stacks to single column below md breakpoint
+- [ ] Book mockup scales proportionally on smaller screens

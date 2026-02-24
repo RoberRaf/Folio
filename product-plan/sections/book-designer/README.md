@@ -1,57 +1,67 @@
 # Book Designer
 
 ## Overview
+The core creation workspace where users build their photo book page by page. Three-panel layout: page preview (center), page thumbnail navigator (left strip), and tabbed image library (right panel).
 
-The Book Designer is the core creation workspace where users build their photo book page by page. It presents a three-panel layout: a full-detail page preview, a scrollable thumbnail navigator for all pages, and a tabbed image library for placing photos. Users can drag or click photos onto pages, reorder pages, change the book theme, and proceed to preview when ready.
+## Shell
+This section does NOT use the application shell (standalone page).
+
+## Components
+
+| Component | Description |
+|-----------|-------------|
+| `BookDesigner` | Root workspace with header and 3-panel layout |
+| `PagePreview` | Full-detail preview of selected page with drag-and-drop, theme picker |
+| `PageThumbnailStrip` | Scrollable strip of page thumbnails with reorder controls |
+| `ImageLibrary` | Tabbed panel with "My Photos" and "Suggested" grids |
+
+## Props Interface
+
+```typescript
+interface BookDesignerProps {
+  book: Book
+  photos: Photo[]
+  suggestedCoverImages: SuggestedImage[]
+  selectedPageId: string
+  onPlacePhoto: (pageId: string, photoId: string) => void
+  onRemovePhoto: (pageId: string) => void
+  onUploadPhotos: (files: File[]) => void
+  onAddPage: () => void
+  onRemovePage: (pageId: string) => void
+  onReorderPage: (pageId: string, direction: 'up' | 'down') => void
+  onChangeTheme: (theme: string) => void
+  onSelectPage: (pageId: string) => void
+  onPreviewBook: () => void
+}
+```
 
 ## User Flows
 
-- **Place a photo**: Drag a photo from the image library onto a page slot in the preview, or click a photo to place it on the currently selected page
-- **Remove a photo**: Remove a photo from the selected page, returning the slot to empty
-- **Select a page**: Click a page thumbnail in the navigator to load it into the full preview
-- **Reorder a page**: Use up/down arrow controls on a thumbnail to move the page earlier or later in the book
-- **Add a page**: Tap the add page control to append a new blank page to the book
-- **Remove a page**: Remove the currently selected page from the book
-- **Change cover theme**: Select a theme from the cover theme picker to style the book's cover
-- **Browse suggested covers**: Switch to the Suggested tab in the image library to view curated cover photo options
-- **Upload photos**: Tap the "+" button in the Photos tab to upload new images; library is disabled during upload and shows per-photo progress
-- **Preview book**: Tap the "Preview Book" CTA to navigate to the Book Preview section
+1. **Place a photo**: Drag from library or click to place on selected page
+2. **Remove a photo**: Click remove to clear the page slot
+3. **Select a page**: Click thumbnail to load into preview
+4. **Reorder pages**: Arrow controls on thumbnails
+5. **Add/remove pages**: Controls in thumbnail strip
+6. **Change theme**: Theme picker dropdown in preview area
+7. **Upload photos**: "+" button in My Photos tab with progress overlay
+8. **Preview book**: "Preview Book" CTA navigates to Book Preview
 
-## Design Decisions
+## Tests
 
-- Standalone fullscreen layout (no shell) — the designer is a focused, immersive workspace
-- Three-panel layout: page thumbnails (left strip), page preview (center), image library (right)
-- On mobile, panels stack vertically for usability
-- A completion progress bar in the header shows filled vs total pages
-- The page preview supports drag-and-drop with a clear visual drop zone and "replace" overlay when a photo is already present
-- Cover theme picker is accessible from the top-right of the preview panel
-- Photos with uploading status show individual progress indicators and are non-interactive
+### Visual
+- [ ] Header shows book title, completion progress bar, status badge
+- [ ] Three panels visible on desktop: thumbnails, preview, library
+- [ ] Selected thumbnail has rose ring highlight
+- [ ] Empty page shows dashed border with placeholder prompt
+- [ ] Uploading photos show progress bar overlay
 
-## Data Shapes
+### Interaction
+- [ ] Drag photo from library → drop on page preview places photo
+- [ ] Click photo in library places it on selected page
+- [ ] Theme picker opens/closes and applies selected theme
+- [ ] Upload button triggers file input; library disabled during upload
+- [ ] Page reorder arrows move pages up/down
 
-**Entities:** Book, Page, Photo, SuggestedImage
-
-## Visual Reference
-
-See `screenshot.png` for the target UI design.
-
-## Components Provided
-
-- `BookDesigner` — Root three-panel workspace
-- `PageThumbnailStrip` — Scrollable page navigator with reorder controls
-- `PagePreview` — Full-detail page view with drag-and-drop and theme picker
-- `ImageLibrary` — Tabbed photo grid with upload support
-
-## Callback Props
-
-| Callback | Triggered When |
-|----------|---------------|
-| `onPlacePhoto` | User drags or clicks a photo onto a page |
-| `onRemovePhoto` | User removes the photo from a page |
-| `onUploadPhotos` | User selects files to upload |
-| `onAddPage` | User clicks "Add page" |
-| `onRemovePage` | User removes the selected page |
-| `onReorderPage` | User clicks up/down arrow on a thumbnail |
-| `onChangeTheme` | User selects a new cover theme |
-| `onSelectPage` | User clicks a page thumbnail |
-| `onPreviewBook` | User clicks "Preview Book" |
+### Responsive
+- [ ] Panels stack vertically on mobile
+- [ ] Thumbnail strip becomes horizontal scroll on mobile

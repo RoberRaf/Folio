@@ -4,11 +4,6 @@
 
 Folio is a personalized photo book creation app that transforms your favorite memories into beautifully printed physical keepsakes. Through an immersive, intuitive design experience — culminating in an interactive page-turning preview that mirrors the real product — users go from photo selection to doorstep delivery with delight at every step.
 
-**Problems Solved:**
-- Existing tools feel clunky and overwhelming — Folio delivers a smooth, visually immersive design flow that makes creating a photo book feel like a joy, not a task.
-- No way to visualize the final product before ordering — Folio's interactive page-turning simulation gives users a near-real preview of the physical book, building confidence and excitement before they place their order.
-- Generic, impersonal results — Folio lets users apply custom cover designs and choose from curated themes and styles, ensuring every book feels uniquely personal.
-
 ## Planned Sections
 
 1. **Landing** — Marketing entry point that communicates Folio's value proposition and invites users to start creating their first book.
@@ -22,53 +17,32 @@ Folio is a personalized photo book creation app that transforms your favorite me
 
 - **User** — A registered account holder. Stores identity, authentication credentials, and personal preferences.
 - **Book** — A photo book project — either in draft or submitted for printing. Holds the overall design configuration including the selected theme, cover details, and ordered page structure.
-- **Page** — A single page within a Book. Defines its order, the layout style (full-page, partial, custom) and the photos placed on it.
+- **Page** — A single page within a Book. Defines its order, the layout style and the photos placed on it.
 - **Photo** — An image uploaded by the User to their personal library. Can be placed on one or more Pages across a Book.
 - **Order** — A confirmed purchase of a Book. Tracks payment status, delivery address, and shipping progress.
-
-**Key Relationships:**
-- User has many Books and Photos
-- Book has many Pages (each Page has one Photo slot)
-- Order belongs to User and has one Book
 
 ## Design System
 
 **Colors:**
-- Primary: `rose` — Buttons, links, key accents, brand color
-- Secondary: `pink` — Tags, highlights, secondary elements
-- Neutral: `stone` — Backgrounds, text, borders
+- Primary: rose
+- Secondary: pink
+- Neutral: stone
 
 **Typography:**
-- Heading: Playfair Display (elegant serif for brand identity)
-- Body: DM Sans (clean, readable sans-serif)
-- Mono: IBM Plex Mono (code and technical text)
-
-## Key Features
-
-- Photo upload and personal image library management
-- Page arrangement with flexible layout compositions (full-page, partial, custom)
-- Custom cover design with title and photo selection
-- Theme and style selection (color palettes, fonts, decorative elements)
-- Interactive page-turning book preview simulation
-- Draft saving and seamless resume from profile
-- Smooth checkout with order confirmation and delivery tracking
-
-## Shell Behavior
-
-Pages **with** the app shell (persistent header nav): Authentication, Profile Drafts, Checkout
-
-Pages **without** the app shell (standalone, fullscreen): Landing, Book Designer, Book Preview
+- Heading: Playfair Display
+- Body: DM Sans
+- Mono: IBM Plex Mono
 
 ## Implementation Sequence
 
 Build this product in milestones:
 
 1. **Shell** — Set up design tokens and application shell
-2. **Landing** — Public marketing page
-3. **Authentication** — Sign in / sign up
-4. **Book Designer** — Core creation workspace
-5. **Book Preview** — Interactive page-flip simulation
-6. **Profile Drafts** — User's book library
-7. **Checkout** — Order and payment flow
+2. **Landing** — Marketing entry point and value proposition
+3. **Authentication** — Sign up and sign in flows
+4. **Book Designer** — Core photo book creation workspace
+5. **Book Preview** — Interactive page-turning book simulation
+6. **Profile Drafts** — User dashboard for managing book projects
+7. **Checkout** — Order review, payment, and confirmation
 
 Each milestone has a dedicated instruction document in `product-plan/instructions/`.

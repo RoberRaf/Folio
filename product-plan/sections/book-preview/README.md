@@ -1,49 +1,60 @@
 # Book Preview
 
 ## Overview
+Immersive, standalone page-flipping simulation where users experience their completed photo book before ordering. Uses react-pageflip-enhanced for realistic page turn animations.
 
-The Book Preview is an immersive, standalone page-flipping simulation where users experience their completed photo book before ordering. The book opens closed on its cover — users click or drag page corners to flip through, or use Previous/Next buttons. From here, users can proceed to checkout, return to the designer, or save the book as a draft.
+## Shell
+This section does NOT use the application shell (standalone page).
 
-## User Flows
+## Components
 
-- **View cover**: The preview loads with the book closed, displaying the cover with the book title, cover photo, and selected theme styling
-- **Flip pages**: Click or drag a page corner to turn it with a realistic page-flip animation (powered by react-pageflip-enhanced)
-- **Navigate with buttons**: Use Previous/Next buttons to step through pages sequentially
-- **Proceed to checkout**: Tap the "Order This Book" CTA to navigate to the Checkout section
-- **Go back to designer**: Tap a back button to return to the Book Designer to make changes
-- **Save as draft**: Tap "Save Draft" to persist the current book state and return to Profile and Drafts
+| Component | Description |
+|-----------|-------------|
+| `BookPreview` | Fullscreen preview with toolbar, flip book, and navigation controls |
 
-## Design Decisions
+## Props Interface
 
-- Standalone fullscreen layout (no shell) — the preview is an immersive, product-focused experience
-- A semi-transparent frosted-glass toolbar overlays the top with back/save/order actions
-- The book renders with a floor shadow and atmospheric radial gradient background
-- Front cover displays the book title at the bottom with an elegant divider line
-- Interior pages show photos with a subtle spine shadow on the binding edge
-- Back cover shows the Folio branding
-- Empty pages render as a clean white page with a subtle placeholder
-- On mobile, "Save Draft" moves to a sticky bottom bar for easier thumb reach
-
-## Data Shapes
-
-**Entities:** PreviewBook (with coverPhoto), Page, Photo
+```typescript
+interface BookPreviewProps {
+  book: PreviewBook
+  onOrderBook?: () => void
+  onBackToDesigner?: () => void
+  onSaveDraft?: () => void
+}
+```
 
 ## Dependencies
 
-- **react-pageflip-enhanced** — Install: `npm install react-pageflip-enhanced`
+- `react-pageflip-enhanced` — page flip animation library
 
-## Visual Reference
+## User Flows
 
-See `screenshot.png` for the target UI design.
+1. Preview loads showing front cover with title, photo, and theme
+2. Click/drag page corners to flip with realistic animation
+3. Previous/Next buttons for sequential navigation
+4. "Order This Book" CTA → navigates to Checkout
+5. "Back to Designer" → returns to Book Designer
+6. "Save Draft" → persists book and navigates to Profile
 
-## Components Provided
+## Tests
 
-- `BookPreview` — Complete page-flip simulation with toolbar and navigation controls
+### Visual
+- [ ] Book starts closed showing front cover
+- [ ] Cover displays book title and cover photo
+- [ ] Interior pages show photos at full quality
+- [ ] Empty pages show blank placeholder
+- [ ] Back cover shows Folio branding
+- [ ] Page numbers visible on interior pages
 
-## Callback Props
+### Interaction
+- [ ] Page corners can be clicked/dragged to flip
+- [ ] Previous/Next buttons navigate sequentially
+- [ ] Prev disabled on cover, Next disabled on back cover
+- [ ] "Order This Book" calls onOrderBook
+- [ ] "Back to Designer" calls onBackToDesigner
+- [ ] "Save Draft" calls onSaveDraft
 
-| Callback | Triggered When |
-|----------|---------------|
-| `onOrderBook` | User clicks "Order This Book" |
-| `onBackToDesigner` | User clicks "Back to Designer" |
-| `onSaveDraft` | User clicks "Save Draft" |
+### Responsive
+- [ ] Book scales proportionally on smaller screens
+- [ ] Navigation buttons reposition for mobile
+- [ ] Mobile-only Save Draft button at bottom

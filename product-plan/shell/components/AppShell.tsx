@@ -1,5 +1,5 @@
-import type { ReactNode } from 'react'
-import { MainNav } from './MainNav'
+import type { ReactNode } from 'react';
+import { MainNav } from './MainNav';
 
 interface AppShellProps {
   children: ReactNode

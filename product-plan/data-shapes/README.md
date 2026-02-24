@@ -6,21 +6,21 @@ How you model, store, and fetch this data on the backend is an implementation de
 
 ## Entities
 
-- **HeroData** — Landing page hero content (used in: landing)
-- **FeatureItem** — Individual feature card for landing page (used in: landing)
-- **FooterData** — Footer content with email and social links (used in: landing)
-- **AuthError** — Authentication error with code and message (used in: authentication)
-- **AuthFormState** — Form state for the auth page (used in: authentication)
-- **Photo** — An uploaded user photo with status and URL (used in: book-designer, book-preview)
-- **Page** — A single page in a book with its photo slot (used in: book-designer, book-preview)
-- **Book** — A photo book project with theme, status, and pages (used in: book-designer, book-preview, profile-drafts, checkout)
-- **SuggestedImage** — A curated cover image option (used in: book-designer)
-- **PreviewBook** — Book data shaped for the preview experience, with cover photo (used in: book-preview)
-- **User** — A logged-in user with name, email, and avatar (used in: profile-drafts)
+- **HeroData** — Landing page hero section content (used in: landing)
+- **FeatureItem** — Feature highlight card for the landing page (used in: landing)
+- **FooterData** — Footer contact and social links (used in: landing)
+- **AuthFormState** — Authentication form state with mode, fields, and errors (used in: authentication)
+- **AuthError** — Named auth error with user-facing message (used in: authentication)
+- **Photo** — An image in the user's library (used in: book-designer, book-preview)
+- **Page** — A single page within a book (used in: book-designer, book-preview)
+- **Book** — A photo book project (used in: book-designer, profile-drafts, checkout)
+- **SuggestedImage** — Curated cover image option (used in: book-designer)
+- **PreviewBook** — Book with cover details for preview (used in: book-preview)
+- **User** — Authenticated account holder (used in: profile-drafts)
 - **OrderSummary** — Price breakdown for an order (used in: checkout)
-- **ShippingAddress** — Delivery address fields (used in: checkout)
-- **PaymentMethod** — Card details for display (used in: checkout)
-- **OrderConfirmation** — Confirmation details after successful order (used in: checkout)
+- **ShippingAddress** — Delivery address (used in: checkout)
+- **PaymentMethod** — Card payment details (used in: checkout)
+- **OrderConfirmation** — Post-purchase confirmation details (used in: checkout)
 
 ## Per-Section Types
 

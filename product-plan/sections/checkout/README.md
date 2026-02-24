@@ -1,51 +1,69 @@
 # Checkout
 
 ## Overview
+Single-page order flow: order summary, shipping address, payment, and place order. After successful payment, a celebratory confirmation screen with confetti animation replaces the form.
 
-The Checkout section is a single-page order flow where the user reviews their designed book, enters a shipping address, provides payment details, and places the order. After successful payment, a celebratory confirmation screen is displayed with the order number and estimated delivery date.
+## Shell
+This section uses the application shell (shell: true).
+
+## Components
+
+| Component | Description |
+|-----------|-------------|
+| `CheckoutPage` | Main checkout form with sections and sticky order button |
+| `OrderSummaryCard` | Book info, quantity selector, and price breakdown |
+| `ShippingAddressForm` | Standard address form with labeled inputs |
+| `PaymentForm` | Card number, expiry, CVC with brand detection |
+| `OrderConfirmation` | Success screen with check animation, confetti, order details |
+
+## Props Interface
+
+```typescript
+interface CheckoutProps {
+  book: Book
+  orderSummary: OrderSummary
+  shippingAddress?: ShippingAddress
+  error?: string
+  confirmation?: OrderConfirmation
+  onQuantityChange?: (quantity: number) => void
+  onShippingAddressChange?: (address: ShippingAddress) => void
+  onPlaceOrder?: (payment: { cardNumber: string; expiry: string; cvc: string }) => void
+  onViewMyBooks?: () => void
+}
+```
 
 ## User Flows
 
-- User arrives at checkout from the Book Preview with a selected book
-- User reviews the order summary: book cover thumbnail, book title, page count, size/format, quantity selector, and price breakdown
-- User fills in shipping address fields
-- User enters payment details: card number, expiry date, and CVC
-- User taps "Place Order" to submit
-- On success, a confirmation screen appears with a check animation, order number, estimated delivery date, and a "View My Books" button
-- On payment error, an inline error message is shown above the payment fields
+1. User reviews order summary: cover thumbnail, title, page count, format, price
+2. Adjust quantity with +/- controls
+3. Fill shipping address form
+4. Enter card number (auto-detects brand), expiry, CVC
+5. "Place Order" button in sticky bottom bar
+6. On success → confirmation screen with confetti, order number, delivery date
+7. Payment error → inline alert above card fields
+8. "View My Books" CTA on confirmation → navigates to Profile
 
-## Design Decisions
+## Tests
 
-- Single scrollable page with numbered sections (1. Order Summary, 2. Shipping Address, 3. Payment)
-- Sticky bottom bar with total price and "Place Order" button always visible
-- Order summary shows a book cover thumbnail prominently
-- Quantity selector is compact: minus/value/plus controls inline
-- Card number field auto-detects card brand (Visa, Mastercard, Amex, Discover) and shows it as a badge
-- Payment form formats card number with spaces and expiry as MM/YY automatically
-- Success confirmation has CSS confetti animation, animated check circle, and order details card
-- "Place Order" button is disabled until all form fields are valid
+### Visual
+- [ ] Order summary shows book cover, title, format details
+- [ ] Price breakdown shows subtotal, shipping, tax, total
+- [ ] Section labels have numbered badges (1, 2, 3)
+- [ ] Card brand badge appears when card number matches known brand
+- [ ] Confirmation screen shows check animation and confetti
+- [ ] Sticky bottom bar shows total and Place Order button
 
-## Data Shapes
+### Interaction
+- [ ] Quantity +/- updates quantity and recalculates prices
+- [ ] Quantity minimum is 1
+- [ ] Card number auto-formats with spaces every 4 digits
+- [ ] Expiry auto-formats as MM/YY
+- [ ] CVC accepts only digits
+- [ ] Place Order disabled until all fields valid
+- [ ] Place Order shows loading spinner while processing
+- [ ] Payment error displays inline without clearing form
+- [ ] "View My Books" calls onViewMyBooks
 
-**Entities:** Book (checkout view), OrderSummary, ShippingAddress, OrderConfirmation
-
-## Visual Reference
-
-See `screenshot.png` for the target UI design.
-
-## Components Provided
-
-- `CheckoutPage` — Complete checkout flow with order summary, shipping, payment, and confirmation
-- `OrderSummaryCard` — Book info, quantity selector, and price breakdown
-- `ShippingAddressForm` — Labeled address input fields
-- `PaymentForm` — Card number, expiry, CVC with auto-formatting and card brand detection
-- `OrderConfirmation` — Success screen with confetti animation and order details
-
-## Callback Props
-
-| Callback | Triggered When |
-|----------|---------------|
-| `onQuantityChange` | User adjusts the quantity |
-| `onShippingAddressChange` | Shipping address fields are all filled |
-| `onPlaceOrder` | User clicks "Place Order" |
-| `onViewMyBooks` | User clicks "View My Books" on the confirmation screen |
+### Responsive
+- [ ] Single-column layout scrolls naturally on all sizes
+- [ ] Sticky bottom bar spans full width on mobile

@@ -2,9 +2,9 @@
 
 ## Define Section Variables
 
-- **SECTION_NAME** = [Human-readable name, e.g., "Book Designer" or "Checkout"]
-- **SECTION_ID** = [Folder name in sections/, e.g., "book-designer" or "checkout"]
-- **NN** = [Milestone number, e.g., "04" or "07" — sections start at 02 since 01 is Shell]
+- **SECTION_NAME** = [Human-readable name, e.g., "Landing Page" or "Book Designer"]
+- **SECTION_ID** = [Folder name in sections/, e.g., "landing" or "book-designer"]
+- **NN** = [Milestone number, e.g., "02" or "04" — sections start at 02 since 01 is Shell]
 
 ---
 

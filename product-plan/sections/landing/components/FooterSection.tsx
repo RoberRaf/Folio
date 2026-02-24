@@ -31,57 +31,27 @@ export function FooterSection({ footer }: FooterSectionProps) {
     <footer className="bg-stone-950 border-t border-stone-800/60">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-20">
         <div className="flex flex-col items-center gap-8">
-          {/* Brand mark */}
           <div className="flex flex-col items-center gap-2">
-            <span
-              className="text-4xl font-bold text-white tracking-tight"
-              style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic' }}
-            >
-              Folio
-            </span>
-            <span className="text-stone-600 text-xs tracking-[0.18em] uppercase font-mono">
-              Beautiful Photo Books
-            </span>
+            <span className="text-4xl font-bold text-white tracking-tight" style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic' }}>Folio</span>
+            <span className="text-stone-600 text-xs tracking-[0.18em] uppercase font-mono">Beautiful Photo Books</span>
           </div>
-
-          {/* Divider with rose accent */}
           <div className="flex items-center gap-3 w-full max-w-xs">
             <div className="h-px flex-1 bg-stone-800" />
             <div className="w-1.5 h-1.5 rounded-full bg-rose-500/60" />
             <div className="h-px flex-1 bg-stone-800" />
           </div>
-
-          {/* Email + social */}
           <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6">
-            <a
-              href={`mailto:${footer.email}`}
-              className="text-stone-400 hover:text-rose-300 transition-colors duration-200 text-sm font-mono"
-            >
-              {footer.email}
-            </a>
-
+            <a href={`mailto:${footer.email}`} className="text-stone-400 hover:text-rose-300 transition-colors duration-200 text-sm font-mono">{footer.email}</a>
             <span className="hidden sm:block w-1 h-1 rounded-full bg-stone-700" />
-
             <div className="flex items-center gap-5">
               {footer.socialLinks.map((link) => (
-                <a
-                  key={link.platform}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={link.platform}
-                  className="text-stone-500 hover:text-rose-400 transition-colors duration-200"
-                >
+                <a key={link.platform} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.platform} className="text-stone-500 hover:text-rose-400 transition-colors duration-200">
                   <SocialIcon platform={link.platform} />
                 </a>
               ))}
             </div>
           </div>
-
-          {/* Copyright */}
-          <p className="text-stone-700 text-xs font-mono tracking-wide">
-            {footer.copyright}
-          </p>
+          <p className="text-stone-700 text-xs font-mono tracking-wide">{footer.copyright}</p>
         </div>
       </div>
     </footer>

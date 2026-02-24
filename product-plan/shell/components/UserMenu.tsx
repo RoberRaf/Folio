@@ -1,13 +1,14 @@
-import { Settings, LogOut } from 'lucide-react'
-// Requires shadcn/ui: npx shadcn-ui@latest add dropdown-menu
+import { LogOut, Settings } from 'lucide-react';
+// NOTE: DropdownMenu components are from shadcn/ui
+// Install via: npx shadcn@latest add dropdown-menu
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 interface UserMenuProps {
   user: { name: string; avatarUrl?: string }

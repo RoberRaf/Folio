@@ -26,7 +26,6 @@ export function HeroSection({ hero, onCreateBook }: HeroSectionProps) {
 
           {/* Text */}
           <div className="flex-1 text-center lg:text-left">
-            {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full bg-rose-500/10 border border-rose-500/20">
               <span className="w-1.5 h-1.5 rounded-full bg-rose-400 animate-pulse" />
               <span className="text-rose-300/90 text-xs font-medium tracking-[0.14em] uppercase font-mono">
@@ -34,7 +33,6 @@ export function HeroSection({ hero, onCreateBook }: HeroSectionProps) {
               </span>
             </div>
 
-            {/* Headline */}
             <h1
               className="text-5xl sm:text-6xl xl:text-[72px] font-bold text-white leading-[1.05] tracking-tight mb-6"
               style={{ fontFamily: "'Playfair Display', serif" }}
@@ -42,12 +40,10 @@ export function HeroSection({ hero, onCreateBook }: HeroSectionProps) {
               {hero.headline}
             </h1>
 
-            {/* Subheadline */}
             <p className="text-xl text-stone-400 leading-relaxed mb-10 max-w-md mx-auto lg:mx-0">
               {hero.subheadline}
             </p>
 
-            {/* CTA */}
             <button
               onClick={onCreateBook}
               className="group inline-flex items-center gap-3 px-8 py-4 bg-rose-500 hover:bg-rose-400 active:scale-[0.98] text-white font-semibold text-base rounded-full transition-all duration-200 hover:shadow-[0_4px_32px_rgba(244,63,94,0.5)] hover:-translate-y-0.5"
@@ -69,16 +65,11 @@ export function HeroSection({ hero, onCreateBook }: HeroSectionProps) {
           {hero.imagePlaceholder && (
             <div className="flex-shrink-0">
               <div className="relative w-60 sm:w-72 lg:w-80">
-                {/* Glow */}
                 <div className="absolute inset-0 scale-75 bg-rose-500/20 blur-3xl rounded-full" />
-
-                {/* Stacked pages */}
                 <div className="absolute inset-0 rounded-2xl bg-stone-800 border border-stone-700/50 rotate-[6deg] translate-x-3 translate-y-2 scale-[0.98]" />
                 <div className="absolute inset-0 rounded-2xl bg-stone-800 border border-stone-700/40 rotate-[3deg] translate-x-1.5 translate-y-1 scale-[0.99]" />
 
-                {/* Main cover */}
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-stone-900">
-                  {/* Subtle grid */}
                   <div
                     className="absolute inset-0"
                     style={{
@@ -87,17 +78,12 @@ export function HeroSection({ hero, onCreateBook }: HeroSectionProps) {
                       backgroundSize: '22px 22px',
                     }}
                   />
-
-                  {/* Rose corner wash */}
                   <div className="absolute -top-12 -right-12 w-52 h-52 rounded-full bg-rose-600/15 blur-3xl" />
-
-                  {/* Floating photo frames */}
                   <div className="absolute top-9 left-7 w-20 h-14 rounded-xl bg-rose-950/80 border border-rose-800/50 -rotate-6 shadow-xl" />
                   <div className="absolute top-20 right-5 w-14 h-10 rounded-lg bg-pink-950/70 border border-pink-800/40 rotate-[8deg] shadow-lg" />
                   <div className="absolute bottom-24 left-5 w-16 h-12 rounded-xl bg-stone-700/80 border border-stone-600/50 rotate-[5deg] shadow-lg" />
                   <div className="absolute bottom-16 right-7 w-11 h-8 rounded-lg bg-rose-950/60 border border-rose-700/40 -rotate-3 shadow-md" />
 
-                  {/* Center icon */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-16 h-16 rounded-2xl bg-rose-500/15 border border-rose-400/25 flex items-center justify-center">
                       <svg className="w-7 h-7 text-rose-300/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -111,14 +97,10 @@ export function HeroSection({ hero, onCreateBook }: HeroSectionProps) {
                     </div>
                   </div>
 
-                  {/* Spine shadow */}
                   <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-black/40 to-transparent" />
 
-                  {/* Bottom label */}
                   <div className="absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-black/70 to-transparent">
-                    <p
-                      className="text-center text-white/30 text-[10px] tracking-[0.3em] uppercase font-mono"
-                    >
+                    <p className="text-center text-white/30 text-[10px] tracking-[0.3em] uppercase font-mono">
                       Your Folio
                     </p>
                   </div>
@@ -129,7 +111,6 @@ export function HeroSection({ hero, onCreateBook }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* Scroll cue */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
         <span className="text-stone-500 text-xs tracking-[0.2em] uppercase font-mono">Scroll</span>
         <div className="w-px h-8 bg-gradient-to-b from-stone-500 to-transparent" />

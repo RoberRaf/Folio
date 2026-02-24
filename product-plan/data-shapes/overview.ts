@@ -54,6 +54,15 @@ export interface AuthError {
   message: string;
 }
 
+export interface AuthFormState {
+  mode: AuthMode;
+  email: string;
+  password: string;
+  name?: string;
+  isLoading: boolean;
+  errorCode?: AuthErrorCode;
+}
+
 // -----------------------------------------------------------------------------
 // From: sections/book-designer
 // -----------------------------------------------------------------------------
@@ -64,7 +73,7 @@ export interface Photo {
   url: string;
   name: string;
   status: 'uploading' | 'ready';
-  uploadProgress: number; // 0–100
+  uploadProgress: number;
 }
 
 export interface Page {
@@ -122,22 +131,20 @@ export interface PreviewBook {
 
 export type BookStatus = "draft" | "ordered";
 
-export interface ProfileUser {
+export interface User {
   id: string;
   name: string;
   email: string;
   avatarUrl: string;
 }
 
-export interface DraftBook {
+export interface ProfileBook {
   id: string;
   title: string;
   status: BookStatus;
-  /** URL for the book cover thumbnail. Null if no cover has been set yet. */
   coverUrl: string | null;
   pageCount: number;
   lastEditedAt: string;
-  /** ISO date string. Present only when status is "ordered". */
   orderedAt?: string;
 }
 

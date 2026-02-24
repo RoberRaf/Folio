@@ -45,6 +45,18 @@ Build the entire app in one session:
 5. Answer the agent's clarifying questions
 6. Let the agent plan and implement everything
 
+## Section Reference
+
+| # | Section | Folder | Shell |
+|---|---------|--------|-------|
+| 01 | Shell | `shell/` | — |
+| 02 | Landing Page | `sections/landing/` | No |
+| 03 | Authentication | `sections/authentication/` | Yes |
+| 04 | Book Designer | `sections/book-designer/` | No |
+| 05 | Book Preview | `sections/book-preview/` | No |
+| 06 | Profile & Drafts | `sections/profile-drafts/` | Yes |
+| 07 | Checkout | `sections/checkout/` | Yes |
+
 ## Testing
 
 Each section includes a `tests.md` file with UI behavior test specs. For best results:
@@ -63,13 +75,6 @@ The test specs are **framework-agnostic** — they describe WHAT to test (user-f
 - **Build on your designs** — Use completed sections as the starting point for future feature development.
 - **Review thoroughly** — Check plans and implementations carefully to catch details and inconsistencies.
 - **The components are flexible** — They accept data and fire callbacks. How you architect the backend is up to you.
-
-## Dependencies
-
-The shell and section components use:
-- **[lucide-react](https://lucide.dev/)** — Icon library
-- **[shadcn/ui](https://ui.shadcn.com/)** — UI primitives (Sheet, DropdownMenu) used in the shell
-- **[react-pageflip-enhanced](https://www.npmjs.com/package/react-pageflip-enhanced)** — Page flip animation in Book Preview
 
 ---
 
