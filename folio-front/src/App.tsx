@@ -1,35 +1,63 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import { AppShell } from '@/components/shell'
+import { useDarkMode } from '@/hooks/useDarkMode'
+import { AuthPage } from '@/pages/AuthPage'
+import { CheckoutPage } from '@/pages/CheckoutPage'
+import { DesignerPage } from '@/pages/DesignerPage'
+import { LandingPage } from '@/pages/LandingPage'
+import { PreviewPage } from '@/pages/PreviewPage'
+import { ProfilePage } from '@/pages/ProfilePage'
 
-function App() {
-  const [count, setCount] = useState(0)
+const MOCK_USER = { name: 'Mark Smith' }
+
+const NAV_ITEMS = [
+  { label: 'Designer', href: '/designer' },
+  { label: 'My Books', href: '/profile' },
+]
+
+interface ShellLayoutProps {
+  isDark: boolean
+  onToggleDark: () => void
+}
+
+function ShellLayout({ isDark, onToggleDark }: ShellLayoutProps) {
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const navigationItems = NAV_ITEMS.map((item) => ({
+    ...item,
+    isActive: location.pathname === item.href,
+  }))
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <AppShell
+      navigationItems={navigationItems}
+      user={MOCK_USER}
+      onNavigate={(href) => navigate(href)}
+      onLogout={() => console.log('logout')}
+      onCreateBook={() => navigate('/designer')}
+      isDark={isDark}
+      onToggleDark={onToggleDark}
+    >
+      <Routes>
+        <Route path="/auth/signup" element={<AuthPage mode="signup" />} />
+        <Route path="/auth/signin" element={<AuthPage mode="signin" />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+      </Routes>
+    </AppShell>
   )
 }
 
-export default App
+export default function App() {
+  const { isDark, toggle } = useDarkMode()
+
+  return (
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/designer" element={<DesignerPage />} />
+      <Route path="/preview" element={<PreviewPage />} />
+      <Route path="/*" element={<ShellLayout isDark={isDark} onToggleDark={toggle} />} />
+    </Routes>
+  )
+}

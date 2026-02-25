@@ -2,9 +2,9 @@
 
 ## Define Section Variables
 
-- **SECTION_NAME** = shell
-- **SECTION_ID** = shell
-- **NN** = 01
+- **SECTION_NAME** = authentication
+- **SECTION_ID** = authentication
+- **NN** = 03
 
 ---
 
