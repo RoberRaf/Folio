@@ -1,0 +1,225 @@
+{
+  "_meta": {
+    "models": {
+      "Book": "A photo book project with cover details, theme, and ordered pages. Represents the completed design being previewed.",
+      "Page": "A single page within a Book. Defines its order and the photo placed on it.",
+      "Photo": "An image used on a page, referenced by URL.",
+      "CoverInfo": "The cover display details including title, cover photo, and theme name."
+    },
+    "relationships": [
+      "Book has many Pages",
+      "Each Page has zero or one Photo",
+      "Book has one CoverInfo describing its front cover"
+    ]
+  },
+  "book": {
+    "id": "book-001",
+    "userId": "user-001",
+    "title": "Summer in Tuscany",
+    "theme": "warm-earth",
+    "status": "draft",
+    "coverPhoto": {
+      "id": "photo-cover",
+      "url": "https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?w=800&q=80",
+      "name": "Tuscan Hillside"
+    },
+    "pages": [
+      {
+        "id": "page-1",
+        "bookId": "book-001",
+        "pageNumber": 1,
+        "photo": {
+          "id": "photo-01",
+          "url": "https://images.unsplash.com/photo-1534445867742-43195f401b6c?w=800&q=80",
+          "name": "Florence Cathedral"
+        }
+      },
+      {
+        "id": "page-2",
+        "bookId": "book-001",
+        "pageNumber": 2,
+        "photo": {
+          "id": "photo-02",
+          "url": "https://images.unsplash.com/photo-1515859005217-8a1f08870f59?w=800&q=80",
+          "name": "Vineyard Rows"
+        }
+      },
+      {
+        "id": "page-3",
+        "bookId": "book-001",
+        "pageNumber": 3,
+        "photo": {
+          "id": "photo-03",
+          "url": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80",
+          "name": "Villa Courtyard"
+        }
+      },
+      {
+        "id": "page-4",
+        "bookId": "book-001",
+        "pageNumber": 4,
+        "photo": {
+          "id": "photo-04",
+          "url": "https://images.unsplash.com/photo-1498307833015-e7b400441eb8?w=800&q=80",
+          "name": "Golden Hour Field"
+        }
+      },
+      {
+        "id": "page-5",
+        "bookId": "book-001",
+        "pageNumber": 5,
+        "photo": null
+      },
+      {
+        "id": "page-6",
+        "bookId": "book-001",
+        "pageNumber": 6,
+        "photo": {
+          "id": "photo-06",
+          "url": "https://images.unsplash.com/photo-1504893524553-b855bce32c67?w=800&q=80",
+          "name": "Cypress Lane"
+        }
+      },
+      {
+        "id": "page-7",
+        "bookId": "book-001",
+        "pageNumber": 7,
+        "photo": {
+          "id": "photo-07",
+          "url": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80",
+          "name": "Mountain Sunset"
+        }
+      },
+      {
+        "id": "page-8",
+        "bookId": "book-001",
+        "pageNumber": 8,
+        "photo": {
+          "id": "photo-08",
+          "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+          "name": "Market Square"
+        }
+      },
+      {
+        "id": "page-9",
+        "bookId": "book-001",
+        "pageNumber": 9,
+        "photo": {
+          "id": "photo-09",
+          "url": "https://images.unsplash.com/photo-1541370976299-4d24ebbc9077?w=800&q=80",
+          "name": "Siena Piazza"
+        }
+      },
+      {
+        "id": "page-10",
+        "bookId": "book-001",
+        "pageNumber": 10,
+        "photo": {
+          "id": "photo-10",
+          "url": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800&q=80",
+          "name": "Rustic Doorway"
+        }
+      },
+      {
+        "id": "page-11",
+        "bookId": "book-001",
+        "pageNumber": 11,
+        "photo": {
+          "id": "photo-11",
+          "url": "https://images.unsplash.com/photo-1529260830199-42c24126f198?w=800&q=80",
+          "name": "Olive Grove"
+        }
+      },
+      {
+        "id": "page-12",
+        "bookId": "book-001",
+        "pageNumber": 12,
+        "photo": {
+          "id": "photo-12",
+          "url": "https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?w=800&q=80",
+          "name": "Sunset Over Hills"
+        }
+      },
+      {
+        "id": "page-13",
+        "bookId": "book-001",
+        "pageNumber": 13,
+        "photo": {
+          "id": "photo-13",
+          "url": "https://images.unsplash.com/photo-1555992336-fb0d29498b13?w=800&q=80",
+          "name": "Terracotta Rooftops"
+        }
+      },
+      {
+        "id": "page-14",
+        "bookId": "book-001",
+        "pageNumber": 14,
+        "photo": {
+          "id": "photo-14",
+          "url": "https://images.unsplash.com/photo-1536323760109-ca8c07450053?w=800&q=80",
+          "name": "Coastal Cliffs"
+        }
+      },
+      {
+        "id": "page-15",
+        "bookId": "book-001",
+        "pageNumber": 15,
+        "photo": {
+          "id": "photo-15",
+          "url": "https://images.unsplash.com/photo-1414609245224-afa02bfb3fda?w=800&q=80",
+          "name": "Lavender Fields"
+        }
+      },
+      {
+        "id": "page-16",
+        "bookId": "book-001",
+        "pageNumber": 16,
+        "photo": {
+          "id": "photo-16",
+          "url": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
+          "name": "Stone Bridge"
+        }
+      },
+      {
+        "id": "page-17",
+        "bookId": "book-001",
+        "pageNumber": 17,
+        "photo": {
+          "id": "photo-17",
+          "url": "https://images.unsplash.com/photo-1532465614-6cc8d45f647f?w=800&q=80",
+          "name": "Winding Road"
+        }
+      },
+      {
+        "id": "page-18",
+        "bookId": "book-001",
+        "pageNumber": 18,
+        "photo": {
+          "id": "photo-18",
+          "url": "https://images.unsplash.com/photo-1494548162494-384bba4ab999?w=800&q=80",
+          "name": "Morning Mist"
+        }
+      },
+      {
+        "id": "page-19",
+        "bookId": "book-001",
+        "pageNumber": 19,
+        "photo": {
+          "id": "photo-19",
+          "url": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800&q=80",
+          "name": "Italian Countryside"
+        }
+      },
+      {
+        "id": "page-20",
+        "bookId": "book-001",
+        "pageNumber": 20,
+        "photo": {
+          "id": "photo-20",
+          "url": "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80",
+          "name": "Mediterranean Coast"
+        }
+      }
+    ]
+  }
+}

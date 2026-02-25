@@ -1,0 +1,13 @@
+/* Design Tokens for Folio */
+
+:root {
+  /* Colors */
+  --color-primary: rose;
+  --color-secondary: pink;
+  --color-neutral: stone;
+
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
