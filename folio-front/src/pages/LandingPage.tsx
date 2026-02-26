@@ -50,7 +50,7 @@ export function LandingPage() {
       hero={hero}
       features={features}
       footer={footer}
-      onCreateBook={() => navigate('/auth/signup')}
+      onCreateBook={() => navigate('/auth/signup', { state: { from: '/designer' } })}
     />
   )
 }
